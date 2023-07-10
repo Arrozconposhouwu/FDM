@@ -1,0 +1,23 @@
+{
+  "name": "fdm",
+  "version": "1.0.0",
+  "description": "Festival de Musica",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arrozconposhouwu/FDM.git"
+  },
+  "keywords": [
+    "SASS",
+    "Gulp"
+  ],
+  "author": "Yoel Medina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arrozconposhouwu/FDM/issues"
+  },
+  "homepage": "https://github.com/Arrozconposhouwu/FDM#readme"
+}
