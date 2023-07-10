@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Arrozconposhouwu/FDM/issues"
   },
-  "homepage": "https://github.com/Arrozconposhouwu/FDM#readme"
+  "homepage": "https://github.com/Arrozconposhouwu/FDM#readme",
+  "devDependencies": {
+    "sass": "^1.63.6"
+  }
 }
