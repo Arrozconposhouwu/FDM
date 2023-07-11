@@ -1,5 +1,2 @@
-$Color: #244423;
-
-body {
-    background-color: $Color;
-}
+@import 'base/variable';
+@import 'contenido/contenido';
