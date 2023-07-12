@@ -307,13 +307,71 @@ template {
   display: none;
 }
 
-h1 {
-  font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
-  font-style: italic;
-  color: #000;
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
-  background-color: #FFF;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+}
+
+p {
+  font-size: 2rem;
+  color: #000;
+}
+
+.contenedor {
+  width: min(95%, 120rem);
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 5rem 0;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3.6rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+.encabezado {
+  background-color: #4CB8B3;
+}
+.encabezado .encabezado__titulo {
+  color: #FFF;
+}
+
+.barranav .barranav__enlace {
+  color: #FFF;
+  font-size: 2.4rem;
+}
+.barranav .barranav__enlace:hover {
+  color: #FEF46D;
+}
+
+.prueba {
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  color: black;
 }
