@@ -1,7 +1,9 @@
 h1 {
-  color: #FFF;
+  font-family: Arial;
+  font-style: italic;
+  color: #000;
 }
 
 body {
-  background-color: blue;
+  background-color: #FFF;
 }

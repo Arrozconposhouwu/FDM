@@ -1,2 +1,9 @@
-@import 'base/variable';
-@import 'contenido/contenido';
+// @import 'base/variable';
+// @import 'contenido/contenido';
+
+// Antigua Forma
+
+@use 'base';
+@use 'contenido';
+
+// Nueva forma

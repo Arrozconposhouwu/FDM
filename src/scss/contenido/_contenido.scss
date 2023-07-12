@@ -1,6 +1,11 @@
-h1{
-    color: $blanco;
+@use '../base/variable' as V;
+
+h1 {
+    font-family: Arial;
+    font-style: italic;
+    color: V.$negro;
 }
-body{
-    background-color: $Color;
+
+body {
+    background-color: V.$blanco;
 }
