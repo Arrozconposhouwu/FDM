@@ -2,7 +2,8 @@ const { src, dest, watch } = require("gulp");
 const sass = require("gulp-sass")(require("sass")); // Tal cual que así
 
 function css(done) {
-    src("src/scss/app.scss") // Identificar el archivo de SASS
+    // src("src/scss/app.scss") // Identificar el archivo de SASS
+    src("src/scss/**/*.scss") //con esta sintaxis lo que hace es que identifique cada arhcivo dentro de la carpeta scss con la extención scss
         .pipe(sass()) // Compilarlo
         .pipe(dest("build/css")); // Almacenarlo en el disco
 
@@ -13,7 +14,8 @@ function css(done) {
 }
 
 function dev(done) {
-    watch("src/scss/app.scss", css);
+    // watch("src/scss/app.scss", css);
+    watch("src/scss/**/*.scss", css); // se tiene que hacer lo mismos aqui.
 
     done();
 }
