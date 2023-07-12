@@ -1,9 +1,11 @@
 const { src, dest, watch } = require("gulp");
 const sass = require("gulp-sass")(require("sass")); // Tal cual que así
+const plumber = require("gulp-plumber"); // evitar que se cancele el watch al colocar una variable que no exista
 
 function css(done) {
     // src("src/scss/app.scss") // Identificar el archivo de SASS
     src("src/scss/**/*.scss") //con esta sintaxis lo que hace es que identifique cada arhcivo dentro de la carpeta scss con la extención scss
+        .pipe(plumber())
         .pipe(sass()) // Compilarlo
         .pipe(dest("build/css")); // Almacenarlo en el disco
 

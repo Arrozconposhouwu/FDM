@@ -306,14 +306,3 @@ template {
 [hidden] {
   display: none;
 }
-
-h1 {
-  font-family: "Times New Roman", Times, serif;
-  font-weight: bold;
-  font-style: italic;
-  color: #000;
-}
-
-body {
-  background-color: #FFF;
-}
