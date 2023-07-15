@@ -362,16 +362,30 @@ h3 {
   color: #FFF;
 }
 
+@media (min-width: 480px) {
+  .barranav {
+    background-color: yellow;
+  }
+}
+@media (min-width: 768px) {
+  .barranav {
+    background-color: green;
+  }
+}
+@media (min-width: 1024px) {
+  .barranav {
+    background-color: blue;
+  }
+}
+@media (min-width: 1280px) {
+  .barranav {
+    background-color: red;
+  }
+}
 .barranav .barranav__enlace {
   color: #FFF;
   font-size: 2.4rem;
 }
 .barranav .barranav__enlace:hover {
   color: #FEF46D;
-}
-
-.prueba {
-  text-transform: uppercase;
-  font-size: 2.4rem;
-  color: black;
 }

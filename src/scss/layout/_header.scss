@@ -10,6 +10,22 @@
 }
 
 .barranav {
+    @include M.telefono {
+        background-color: yellow;
+    }
+
+    @include M.tablet {
+        background-color: green;
+    }
+
+    @include M.laptop {
+        background-color: blue;
+    }
+
+    @include M.desktop {
+        background-color: red;
+    }
+
     .barranav__enlace {
         color: V.$blanco;
         font-size: 2.4rem;
@@ -20,6 +36,8 @@
     }
 }
 
-.prueba{
-    @include M.heading;
-}
+//  .prueba {
+//      @include M.heading(V.$rosa);
+//  }
+
+// Esta es la forma de llamar a un mixin inteligente.

@@ -1,5 +1,34 @@
- @mixin heading {
-    text-transform: uppercase;
-    font-size: 2.4rem;
-    color: black;
- }
+@use 'variable' as V;
+
+@mixin telefono {
+   @media (min-width: V.$telefono) {
+      @content;
+   }
+}
+
+@mixin tablet {
+   @media (min-width: V.$tablet) {
+      @content;
+   }
+}
+
+@mixin laptop {
+   @media (min-width: V.$laptop) {
+      @content;
+   }
+}
+
+@mixin desktop {
+   @media (min-width: V.$desktop) {
+      @content;
+   }
+}
+
+
+// @mixin heading($color: black) {
+//    font-size: 2.4rem;
+//    text-align: justify;
+//    color: $color;
+// }
+
+// El mixin se compone de @mixin *Nombre del mixin* (Parametro a cambiar : Caso de no haber un parametro) {}
