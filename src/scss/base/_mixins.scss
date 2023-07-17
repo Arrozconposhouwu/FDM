@@ -1,4 +1,5 @@
 @use 'variable' as V;
+@use 'globales' as G;
 
 @mixin telefono {
    @media (min-width: V.$telefono) {
