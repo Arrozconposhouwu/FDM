@@ -4,34 +4,63 @@
 .encabezado {
     background-color: V.$verde;
 
+    @include M.tablet {
+        margin: 0;
+        padding: 1rem 0;
+        // Quita el margin de 5rem preestablecido en los ajustes globales cuando el documento llega al tamaño Tablet.
+    }
+
+
     .encabezado__titulo {
         color: V.$blanco;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        padding-top: 2.5rem;
+
+        // Aqui son los ajustes que se toman en cuenta desde la vista más pequeña, es decir, la vista de telefono, despues con los media query todo lo que hace es darle estilos en las vistas más grandes, es decir, tablets, laptops, desktop's entre otros
+        @include M.tablet {
+            margin: 0;
+            padding: 0;
+        }
+
+        // Estos serian los ajustes para vistas más grandes.
+    }
+
+    .encabezado__contenedor {
+        display: block;
+
+        // Aqui es algo interesante, como dije en un principio, primero se aplica para las vistas más pequeñas, bueno aqui se le da un display block para que los enlaces se junten uno encima de otro.
+        @include M.tablet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // Para aqui despues darle el estilo de uno al lado de otro en las vistas más grandes. además de una separación de borde a borde y un alineado de forma vertical a los elementos.
+        }
     }
 }
 
 .barranav {
-    @include M.telefono {
-        background-color: yellow;
-    }
-
     @include M.tablet {
-        background-color: green;
-    }
-
-    @include M.laptop {
-        background-color: blue;
-    }
-
-    @include M.desktop {
-        background-color: red;
+        display: flex;
+        align-items: center; // Por un vacio dentro del codigo, se vuelve a aplicar esta propiedad pero al contenedor que tiene a los enlaces. arriba es el que contiene el TItulo y La Barra de navegación, es decir, este bloque.
+        gap: 2rem;
+        // Una vez que se le aplica el espaciado de borde a borde, para que los enlaces no queden apilados unos encima de otros, se le aplica la propiedad flex al contenedor que posee los enlaces, es decir barranav.
     }
 
     .barranav__enlace {
         color: V.$blanco;
+        display: block;
+        text-align: center;
+        padding-bottom: 2rem;
         font-size: 2.4rem;
+
+        @include M.tablet {
+            padding: 0;
+        }
 
         &:hover {
             color: V.$amarillo;
+
         }
     }
 }

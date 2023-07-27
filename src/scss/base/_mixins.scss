@@ -25,6 +25,19 @@
    }
 }
 
+@mixin grid($colum, $space) {
+   display: grid;
+   grid-template-columns: repeat($colum, 1fr);
+   gap: $space;
+}
+
+@mixin margin-1rem {
+   margin: 2.5rem;
+}
+
+@mixin center {
+   text-align: center;
+}
 
 // @mixin heading($color: black) {
 //    font-size: 2.4rem;

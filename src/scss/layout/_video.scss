@@ -1,0 +1,72 @@
+@use '../base/variable' as V;
+@use '../base/mixins' as M;
+
+.video {
+    position: relative; //Padre
+    max-height: 40rem; // se le da un Alto maximo de 50rem para la vista de telefonos.
+    min-height: 25rem; // Alto minimo, que es decir, lo minimo a lo que se puede deformar son 35rem.
+    overflow: hidden; // Aqui es para evitar ese desborde el video, debido a que tiene alto en base al ancho, y ese ancho abarca el 100% de la pantalla
+
+    //De igua forma, primero se plantea el diseño para moviles y despues se adapta a resoluciones más altas.
+    @include M.tablet {
+        max-height: 60rem; // Lo mismo pero en vista para tablets, ordenadores.
+        min-height: 25rem; // x2
+    }
+
+    .capa {
+        position: absolute; //hijo
+        width: 100%; // Esto es para que una vez que se agregue el bg, tome el 100% del contenedor padre que en este caso es video.
+        height: 100%; // x2
+        background: rgb(245, 55, 86);
+        background: linear-gradient(90deg, rgba(245, 55, 86, 0.2) 0%, rgba(0, 65, 179, 0.5) 48%, rgba(76, 184, 179, 0.2) 100%);
+        // background hecho con https://cssgradient.io
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // Alinear los hijos.
+    }
+
+    .video__v {
+        width: auto; // Esto es para qu el video se adapte a las medidas del contendor de capa, debido a que se encuentra dentro de este, es decir, es el hijo Capa.
+
+        @include M.tablet {
+            width: 100%; // Para poder adaptarlo a tablets, ordenadores.
+        }
+    }
+}
+
+.video__contenido {
+    z-index: 1; // Este Z.index es para poder selecionar el contenido que va dentro del video, gracias a que como se hace con position relative y despues absolute, el contenido queda debajo del video, lo que hace es posicionarlo encima de estos dos.
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // Alinear el contenido dentro del contenedor, que en este caso son el titulo y el parrafo, pero solo en la vista de telefonos.
+
+    @include M.tablet {
+        display: block; // Como relaté más arriba, en la vista de 
+
+    }
+
+    .vc_titulo {
+        font-size: 6rem;
+        margin: 0;
+        text-align: center;
+        color: V.$blanco;
+
+        @include M.tablet {
+            font-size: 8rem;
+            text-align: start;
+        }
+    }
+
+    .vc_parrafo {
+        color: V.$blanco;
+        font-weight: 700;
+        background-color: V.$rosa;
+        padding: 1rem 2rem;
+        margin: .2rem;
+        border-radius: .5rem;
+        display: inline-block;
+    }
+}
