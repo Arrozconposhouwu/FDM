@@ -1,4 +1,4 @@
-const { src, dest, watch } = require("gulp");
+const { src, dest, watch, parallel } = require("gulp");
 
 // CSS
 
@@ -73,9 +73,10 @@ function dev(done) {
 
 exports.css = css;
 exports.dev = dev;
-exports.towebp = towebp;
-exports.toavif = toavif;
-exports.img = img;
+// exports.towebp = towebp;
+// exports.toavif = toavif;
+// exports.img = img;
+exports.converter = parallel(towebp, toavif, img);
 
 // Export.css es para el nombre de la tarea = es el nombre de la función dentro del código.
 
