@@ -8,7 +8,8 @@
     "sass": "sass --watch src/scss:build/css",
     "tarea": "gulp tarea",
     "css": "gulp css",
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "towebp": "gulp towebp"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "gulp": "^4.0.2",
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^5.1.0",
+    "gulp-webp": "^4.0.1",
     "sass": "^1.63.6"
   }
 }

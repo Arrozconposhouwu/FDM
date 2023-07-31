@@ -1,7 +1,12 @@
 const { src, dest, watch } = require("gulp");
+
+// CSS
 const sass = require("gulp-sass")(require("sass")); // Tal cual que así
 const plumber = require("gulp-plumber"); // evitar que se cancele el watch al colocar una variable que no exista
+// Imagenes
+const webp = require('gulp-webp');
 
+// Convertir los archivos .scss a .css
 function css(done) {
     // src("src/scss/app.scss") // Identificar el archivo de SASS
     src("src/scss/**/*.scss") //con esta sintaxis lo que hace es que identifique cada arhcivo dentro de la carpeta scss con la extención scss
@@ -15,15 +20,24 @@ function css(done) {
     done(); // Callback que avisa a gulp que llegmaos al final
 }
 
-function dev(done) {
-    // watch("src/scss/app.scss", css);
-    watch("src/scss/**/*.scss", css); // se tiene que hacer lo mismos aqui.
-
+// Convertir Imagenes
+function towebp(done) {
+    src("img/**/*.{png,jpg}") // Aqui se buscan los archivos dentro de la carpeta IMG.
+        .pipe(webp()) // Posteriormente se llama la constante que esta relacionada con el gulp-webp, en donde esta se encarga de convertir los archivos ya encontrados en la anteior linea a webp.
+        .pipe(dest("build/img")); // Una vez convertidos los archivos, son guardados en la carpeta build, teniendo su propia carpeta llamada img.
     done();
 }
 
-exports.css = css; //Cambio*
+// Compilar cambios al guardar
+function dev(done) {
+    // watch("src/scss/app.scss", css);
+    watch("src/scss/**/*.scss", css); // se tiene que hacer lo mismos aqui.
+    done();
+}
+
+exports.css = css;
 exports.dev = dev;
+exports.towebp = towebp;
 
 // Export.css es para el nombre de la tarea = es el nombre de la función dentro del código.
 
