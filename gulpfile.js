@@ -31,7 +31,7 @@ function towebp(done) {
 // Compilar cambios al guardar
 function dev(done) {
     // watch("src/scss/app.scss", css);
-    watch("src/scss/**/*.scss", css); // se tiene que hacer lo mismos aqui.
+    watch("src/scss/**/*.scss", css); // Aqui explicando un poco, lo que hace esta linea a la hora de registrar un cambio, llama a la funcion
     done();
 }
 
@@ -41,9 +41,6 @@ exports.towebp = towebp;
 
 // Export.css es para el nombre de la tarea = es el nombre de la función dentro del código.
 
-//Aqui es para usarlo en el npx gulp css, despues en el .JSON vas a la parte de scripts, y tiene esta sintaxis "Nombre Comando" = "Herramienta Nombre Tarea", es decir, "css" = "gulp css"
+// Aqui es para usarlo en el npx gulp css, despues en el .JSON vas a la parte de scripts, y tiene esta sintaxis "Nombre Comando" = "Herramienta Nombre Tarea", es decir, "css" = "gulp css"
 
-//Recuerda que para permitir la conexión del gulp y el sass en necesario descargar el plugin gulp-sass que el comando es tal cual que así, npm instal --save-dev gulp-sass
-
-
-//cambio de ramaxd
+// Recuerda que para permitir la conexión del gulp y el sass en necesario descargar el plugin gulp-sass que el comando es tal cual que así, npm instal --save-dev gulp-sass
