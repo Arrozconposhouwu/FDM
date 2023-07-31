@@ -1,16 +1,20 @@
 const { src, dest, watch } = require("gulp");
 
 // CSS
+
 // css y dev
 const sass = require("gulp-sass")(require("sass")); // Tal cual que así
 const plumber = require("gulp-plumber"); // evitar que se cancele el watch al colocar una variable que no exista
+
 // Imagenes
 
+// towebp
+const webp = require('gulp-webp');
+// toavif
+const avif = require('gulp-avif');
 // img
 const imagemin = require('gulp-imagemin');
 const cache = require('gulp-cache');
-// towebp
-const webp = require('gulp-webp');
 
 // Convertir los archivos .scss a .css
 
@@ -20,10 +24,6 @@ function css(done) {
         .pipe(plumber())
         .pipe(sass()) // Compilarlo
         .pipe(dest("build/css")); // Almacenarlo en el disco
-
-    // Primero se idetifica el archivo, despues con el pipe se llama el sass (1) una vez llamado, el siguiente pipe se utiliza para que el archivo compilado se guarde en build/css
-    // (1) Para llamarlo se utiliza la el const se llama la herramienta a utilizar y despues se utiliza require y se llama la herramienta.
-
     done(); // Callback que avisa a gulp que llegmaos al final
 }
 
@@ -38,6 +38,19 @@ function towebp(done) {
         .pipe(dest("build/img")); // Una vez convertidos los archivos, son guardados en la carpeta build, teniendo su propia carpeta llamada img.
     done();
 }
+
+// Convertir Imagenes a AVIF
+
+function toavif(done) {
+    const options = {
+        quality: 50
+    };
+    src("img/**/*.{png,jpg}")
+        .pipe(avif(options))
+        .pipe(dest("build/img"));
+    done();
+}
+
 // Reducir peso de Imagenes
 
 function img(done) {
@@ -51,6 +64,7 @@ function img(done) {
 }
 
 // Compilar cambios al guardar
+
 function dev(done) {
     // watch("src/scss/app.scss", css);
     watch("src/scss/**/*.scss", css); // Aqui explicando un poco, lo que hace esta linea a la hora de registrar un cambio, llama a la funcion
@@ -60,6 +74,7 @@ function dev(done) {
 exports.css = css;
 exports.dev = dev;
 exports.towebp = towebp;
+exports.toavif = toavif;
 exports.img = img;
 
 // Export.css es para el nombre de la tarea = es el nombre de la función dentro del código.
