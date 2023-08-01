@@ -526,44 +526,61 @@ img {
 }
 
 .lineup {
-  width: min(75%, 90rem);
+  width: 95%;
   margin: 0 auto;
   padding: 5rem 0;
 }
+@media (min-width: 768px) {
+  .lineup {
+    width: min(75%, 90rem);
+  }
+}
 .lineup .lineup__titulo {
   font-size: 2.4rem;
+  font-weight: 700;
   color: #FFF;
   text-align: center;
   margin-bottom: 2.5rem;
 }
 .lineup .lineup__fecha {
   font-size: 1.8rem;
-  font-weight: lighter;
+  font-weight: 400;
   color: #FFF;
   text-align: center;
   margin-bottom: 2.5rem;
 }
 
 .lineup__apartados {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+@media (min-width: 768px) {
+  .lineup__apartados {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
 }
 
 .lineup__rock {
   background-color: #FEF46D;
+  border-radius: 0.5rem;
   padding: 2.5rem;
 }
 .lineup__rock .rock__titulo {
+  font-size: 1.8rem;
   color: #000;
   text-align: center;
 }
 
 .lineup__edm {
   background-color: #4CB8B3;
+  border-radius: 0.5rem;
   padding: 2.5rem;
 }
 .lineup__edm .edm__titulo {
+  font-size: 1.8rem;
   color: #000;
   text-align: center;
 }
