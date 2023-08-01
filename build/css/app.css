@@ -532,7 +532,7 @@ img {
 }
 @media (min-width: 768px) {
   .lineup {
-    width: min(75%, 90rem);
+    width: min(85%, 100rem);
   }
 }
 .lineup .lineup__titulo {
@@ -545,42 +545,58 @@ img {
 .lineup .lineup__fecha {
   font-size: 1.8rem;
   font-weight: 400;
+  text-transform: uppercase;
   color: #FFF;
   text-align: center;
   margin-bottom: 2.5rem;
 }
+.lineup .lineup__fecha-- {
+  margin-top: 2.5rem;
+}
 
-.lineup__apartados {
+.lineup__bloque {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
 }
 @media (min-width: 768px) {
-  .lineup__apartados {
+  .lineup__bloque {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
   }
 }
-
-.lineup__rock {
+.lineup__bloque .bloque__rock {
   background-color: #FEF46D;
   border-radius: 0.5rem;
   padding: 2.5rem;
 }
-.lineup__rock .rock__titulo {
-  font-size: 1.8rem;
-  color: #000;
-  text-align: center;
-}
-
-.lineup__edm {
+.lineup__bloque .bloque__edm {
   background-color: #4CB8B3;
   border-radius: 0.5rem;
   padding: 2.5rem;
 }
-.lineup__edm .edm__titulo {
-  font-size: 1.8rem;
+
+.bloque__titulo {
   color: #000;
   text-align: center;
+}
+
+.bloque__picture {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bloque__picture .bloque__icono {
+  height: 8rem;
+  width: auto;
+}
+
+.calendario {
+  list-style: none;
+  padding: 0;
+}
+.calendario .calendario__fecha {
+  font-weight: 700;
+  margin-top: 5rem;
 }

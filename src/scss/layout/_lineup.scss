@@ -9,7 +9,7 @@
     width: 95%;
 
     @include M.tablet {
-        width: min(75%, 90rem);
+        width: min(85%, 100rem);
     }
 
     margin: 0 auto;
@@ -25,12 +25,17 @@
     .lineup__fecha {
         font-size: 1.8rem;
         font-weight: 400;
+        text-transform: uppercase;
         @include M.white__center;
         @include M.margin__botom;
     }
+
+    .lineup__fecha--{
+        margin-top: 2.5rem;
+    }
 }
 
-.lineup__apartados {
+.lineup__bloque {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
@@ -38,26 +43,35 @@
     @include M.tablet {
         @include M.grid(2, 2.5rem);
     }
-}
 
-.lineup__rock {
-    background-color: V.$amarillo;
-    border-radius: .5rem;
-    padding: 2.5rem;
+    .bloque__rock {
+        @include M.bg__color(V.$amarillo);
+    }
 
-    .rock__titulo {
-        font-size: 1.8rem;
-        @include M.black__center;
+    .bloque__edm {
+        @include M.bg__color(V.$verde);
     }
 }
 
-.lineup__edm {
-    background-color: V.$verde;
-    border-radius: .5rem;
-    padding: 2.5rem;
+.bloque__titulo {
+    @include M.black__center;
+}
 
-    .edm__titulo {
-        font-size: 1.8rem;
-        @include M.black__center;
+.bloque__picture {
+    @include M.Center__X;
+
+    .bloque__icono {
+        @include M.icono(8rem);
+
+    }
+}
+
+.calendario {
+    list-style: none;
+    padding: 0;
+
+    .calendario__fecha {
+        font-weight: 700;
+        margin-top: 5rem;
     }
 }

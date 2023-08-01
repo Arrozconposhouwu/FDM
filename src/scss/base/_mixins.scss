@@ -1,6 +1,9 @@
 @use 'variable' as V;
 @use 'globales' as G;
 
+
+// Media Querys
+
 @mixin telefono {
    @media (min-width: V.$telefono) {
       @content;
@@ -25,11 +28,23 @@
    }
 }
 
+// Display GRID
+
 @mixin grid($colum, $space) {
    display: grid;
    grid-template-columns: repeat($colum, 1fr);
    gap: $space;
 }
+
+// Display FLEX-COLUM
+
+@mixin Center__X {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+// REUTILIZABLES
 
 @mixin margin-1rem {
    margin: 2.5rem;
@@ -49,8 +64,19 @@
    text-align: center;
 }
 
-@mixin margin__botom{
+@mixin margin__botom {
    margin-bottom: 2.5rem;
+}
+
+@mixin bg__color($color) {
+   background-color: $color;
+   border-radius: .5rem;
+   padding: 2.5rem;
+}
+
+@mixin icono($tamaño) {
+   height: $tamaño;
+   width: auto;
 }
 
 // @mixin heading($color: black) {
