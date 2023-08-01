@@ -1,0 +1,47 @@
+@use '../base/variable' as V;
+@use '../base/mixins' as M;
+
+.lineup__bg {
+    background-color: V.$rosa;
+}
+
+.lineup {
+    width: min(75%, 90rem);
+    margin: 0 auto;
+    padding: 5rem 0;
+
+    .lineup__titulo {
+        font-size: 2.4rem;
+        @include M.white__center;
+        @include M.margin__botom;
+    }
+
+    .lineup__fecha {
+        font-size: 1.8rem;
+        font-weight: lighter;
+        @include M.white__center;
+        @include M.margin__botom;
+    }
+}
+
+.lineup__apartados {
+    @include M.grid(2, 5rem)
+}
+
+.lineup__rock {
+    background-color: V.$amarillo;
+    padding: 2.5rem;
+
+    .rock__titulo {
+        @include M.black__center;
+    }
+}
+
+.lineup__edm {
+    background-color: V.$verde;
+    padding: 2.5rem;
+
+    .edm__titulo {
+        @include M.black__center;
+    }
+}
