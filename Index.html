@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -41,7 +41,11 @@
 
     <div class="contenedor festival">
         <div class="festival__img">
-            <img src="/img/imagen_vocalista.jpg" alt="Imagen Vocalista del Festival.">
+            <picture>
+                <source srcset="build/img/imagen_vocalista.avif" type="image/avif">
+                <source srcset="build/img/imagen_vocalista.webp" type="image/webp">
+                <img src="build/img/imagen_vocalista.jpg" alt="Imagen Vocalista">
+            </picture>
         </div>
         <div class="festival__contenido">
             <h2 class="festival__titulo">Rock & EDM Festival</h2>
