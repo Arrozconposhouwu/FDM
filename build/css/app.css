@@ -491,6 +491,7 @@ img {
   .festival {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
     gap: 5rem;
   }
 }
@@ -528,7 +529,7 @@ img {
 .lineup {
   width: 95%;
   margin: 0 auto;
-  padding: 5rem 0;
+  padding: 2.5rem 0;
 }
 @media (min-width: 768px) {
   .lineup {
@@ -546,12 +547,9 @@ img {
   font-size: 1.8rem;
   font-weight: 400;
   text-transform: uppercase;
+  margin: 0;
   color: #FFF;
   text-align: center;
-  margin-bottom: 2.5rem;
-}
-.lineup .lineup__fecha-- {
-  margin-top: 2.5rem;
 }
 
 .lineup__bloque {
@@ -563,18 +561,51 @@ img {
   .lineup__bloque {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
     gap: 2.5rem;
   }
+  .lineup__bloque .lineup__fecha--1 {
+    grid-column: 1/3;
+    grid-row: 1/2;
+  }
+  .lineup__bloque .bloque__amarillo--1 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .lineup__bloque .bloque__verde--1 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .lineup__bloque .lineup__fecha--2 {
+    grid-column: 1/3;
+    grid-row: 3/4;
+  }
+  .lineup__bloque .bloque__amarillo--2 {
+    grid-column: 2/3;
+    grid-row: 4/5;
+  }
+  .lineup__bloque .bloque__verde--3 {
+    grid-column: 1/2;
+    grid-row: 4/5;
+  }
 }
-.lineup__bloque .bloque__rock {
+
+.bloque__amarillo {
   background-color: #FEF46D;
   border-radius: 0.5rem;
-  padding: 2.5rem;
+  padding-top: 2.5rem;
 }
-.lineup__bloque .bloque__edm {
+.bloque__amarillo .calendario__fecha:nth-child(odd) {
+  background-color: #fef03a;
+}
+
+.bloque__verde {
   background-color: #4CB8B3;
   border-radius: 0.5rem;
-  padding: 2.5rem;
+  padding-top: 2.5rem;
+}
+.bloque__verde .calendario__fecha:nth-child(odd) {
+  background-color: #43a8a3;
 }
 
 .bloque__titulo {
@@ -598,5 +629,8 @@ img {
 }
 .calendario .calendario__fecha {
   font-weight: 700;
-  margin-top: 5rem;
+  padding: 2.5rem;
+}
+.calendario .calendaio__lugar {
+  font-weight: 400;
 }

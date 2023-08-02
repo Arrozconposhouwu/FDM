@@ -33,6 +33,7 @@
 @mixin grid($colum, $space) {
    display: grid;
    grid-template-columns: repeat($colum, 1fr);
+   grid-template-rows: auto;
    gap: $space;
 }
 
@@ -71,7 +72,6 @@
 @mixin bg__color($color) {
    background-color: $color;
    border-radius: .5rem;
-   padding: 2.5rem;
 }
 
 @mixin icono($tamaño) {
