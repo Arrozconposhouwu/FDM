@@ -33,7 +33,7 @@ function towebp(done) {
     const options = {
         quality: 50
     };
-    src("img/**/*.{png,jpg}") // Aqui se buscan los archivos dentro de la carpeta IMG.
+    src("src/img/**/*.{png,jpg}") // Aqui se buscan los archivos dentro de la carpeta IMG.
         .pipe(webp(options)) // Posteriormente se llama la constante que esta relacionada con el gulp-webp, en donde esta se encarga de convertir los archivos ya encontrados en la anteior linea a webp.
         .pipe(dest("build/img")); // Una vez convertidos los archivos, son guardados en la carpeta build, teniendo su propia carpeta llamada img.
     done();
@@ -45,7 +45,7 @@ function toavif(done) {
     const options = {
         quality: 50
     };
-    src("img/**/*.{png,jpg}")
+    src("src/img/**/*.{png,jpg}")
         .pipe(avif(options))
         .pipe(dest("build/img"));
     done();
@@ -57,21 +57,31 @@ function img(done) {
     const options = {
         optimizationLevel: 3
     };
-    src("img/**/*.{png,jpg}")
+    src("src/img/**/*.{png,jpg}")
         .pipe(cache(imagemin(options)))
         .pipe(dest('build/img'))
     done();
 }
 
+// jscript
+
+function js(done) {
+    src('src/js/**/*.js')
+        .pipe(dest('build/js'))
+    done();
+}
 // Compilar cambios al guardar
 
 function dev(done) {
     // watch("src/scss/app.scss", css);
-    watch("src/scss/**/*.scss", css); // Aqui explicando un poco, lo que hace esta linea a la hora de registrar un cambio, llama a la funcion
+    watch("src/scss/**/*.scss", css);
+    watch("src/js/**/*.js", js);
+    // Aqui explicando un poco, lo que hace esta linea a la hora de registrar un cambio, llama a la funcion
     done();
 }
 
-exports.css = css;
+// exports.css = css;
+// exports .js = js;
 exports.dev = dev;
 // exports.towebp = towebp;
 // exports.toavif = toavif;
