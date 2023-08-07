@@ -1,55 +1,64 @@
-// Cuando el DOM se ha cargado completamente, se ejecuta la función IniciarAPP()
+// Cuando se carga el contenido del DOM, se ejecuta la función IniciarAPP
 document.addEventListener('DOMContentLoaded', function () {
     IniciarAPP();
 });
 
-// Función para iniciar la aplicación
+// Función que inicia la aplicación llamando a CrearGaleria
 function IniciarAPP() {
-    // Llama a la función CrearGaleria() para crear la galería de imágenes
     CrearGaleria();
 }
 
-// Función para crear la galería de imágenes
+// Función que crea la galería de imágenes
 function CrearGaleria() {
-    // Selecciona el elemento con la clase 'galeria__imagenes' para agregar las imágenes
+    // Obtener el elemento con la clase "galeria__imagenes"
     const galeria = document.querySelector('.galeria__imagenes');
+
+    // Crear 12 imágenes en la galería
     for (let i = 1; i <= 12; i++) {
-        // Crea un nuevo elemento 'picture' para mostrar una imagen
         const imagen = document.createElement('picture');
+        // Agregar código HTML para las imágenes con formatos avif, webp y png
         imagen.innerHTML = `
             <source srcset="build/img/grande/${i}.avif" type="image/avif">
             <source srcset="build/img/grande/${i}.webp" type="image/webp">
             <img src="build/img/grande/${i}.png" alt="Imagen de Galeria">
         `;
-
-        // Asigna un evento 'onclick' a cada imagen creada para mostrar la imagen en la superposición
+        // Asignar un evento onclick a cada imagen para mostrarla al hacer clic
         imagen.onclick = function () {
             mostrarImagen(i);
         }
-
-        // Agrega la imagen a la galería
+        // Agregar la imagen a la galería
         galeria.appendChild(imagen);
     }
 }
 
-// Función para mostrar la imagen seleccionada en una superposición (overlay)
+// Función que muestra una imagen ampliada cuando se hace clic en una miniatura
 function mostrarImagen(id) {
-    // Crea un nuevo elemento 'picture' para mostrar la imagen seleccionada
     const imagen = document.createElement('picture');
+    // Agregar código HTML para la imagen ampliada con formatos avif, webp y png
     imagen.innerHTML = `
         <source srcset="build/img/grande/${id}.avif" type="image/avif">
         <source srcset="build/img/grande/${id}.webp" type="image/webp">
         <img src="build/img/grande/${id}.png" alt="Imagen de Galeria">
     `;
 
-    // Crea un nuevo elemento 'div' que servirá como capa superpuesta (overlay)
+    // Crear un overlay para mostrar la imagen ampliada
     const overlay = document.createElement('div');
     overlay.appendChild(imagen);
-
-    // Agrega la clase 'overlay' al div, que tendrá estilos para mostrar la superposición
     overlay.classList.add('overlay');
 
-    // Busca el elemento 'body' del documento y agrega la superposición 'overlay' al final
+    // Agregar un botón de cerrar para ocultar la imagen ampliada
+    const cerrarimg = document.createElement('p');
+    cerrarimg.textContent = 'X';
+    cerrarimg.classList.add('boton__cerrar');
+    cerrarimg.onclick = function () {
+        overlay.remove();
+        const body = document.querySelector('body');
+        body.classList.remove('fijar__body');
+    }
+    overlay.appendChild(cerrarimg);
+
+    // Agregar el overlay a la página y fijar el cuerpo para evitar el desplazamiento
     const body = document.querySelector('body');
     body.appendChild(overlay);
+    body.classList.add('fijar__body');
 }

@@ -5,6 +5,7 @@
     padding: 2.5rem 0;
 
     .galeria__titulo {
+        // Estilos del titulo
         font-size: 2.4rem;
         font-weight: 700;
         @include M.black__center;
@@ -13,16 +14,20 @@
 }
 
 .galeria__imagenes {
+    // Quitarle los estilos predeterminados a la lista.
     list-style: none;
     margin: 0;
     padding: 0;
 
+    // Columnas en la Vista de Celular
     @include M.grid(2, 1rem);
 
+    // Columnas en la Vista de Tablet
     @include M.tablet {
         @include M.grid(3, 1rem);
     }
 
+    // Columnas en la Vista de Laptop
     @include M.laptop {
         @include M.grid(4, 1rem);
     }
@@ -53,7 +58,23 @@ img {
     // Estilo de la imagen dentro del Overlay
     picture {
         display: block;
-        width: 50%;
+        max-width: 75rem;
         height: auto;
+    }
+}
+
+.boton__cerrar {
+    // Estilos del boton.
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: V.$blanco;
+    color: V.$negro;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+
+    &:hover {
+        cursor: pointer;
     }
 }
