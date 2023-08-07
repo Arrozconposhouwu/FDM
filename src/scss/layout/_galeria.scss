@@ -1,0 +1,35 @@
+@use '../base/variable' as V;
+@use '../base/mixins' as M;
+
+.galeria {
+    padding: 2.5rem 0;
+
+    .galeria__titulo {
+        font-size: 2.4rem;
+        font-weight: 700;
+        @include M.black__center;
+        @include M.margin__botom;
+    }
+}
+
+.galeria__imagenes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include M.grid(2, 1rem);
+
+    @include M.tablet {
+        @include M.grid(3, 1rem);
+    }
+
+    @include M.laptop {
+        @include M.grid(4, 1rem);
+    }
+}
+
+.galeria__img {
+    height: 100%;
+    width: 100%;
+    border-radius: .5rem;
+}
