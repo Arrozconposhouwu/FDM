@@ -46,15 +46,26 @@ function mostrarImagen(id) {
     overlay.appendChild(imagen);
     overlay.classList.add('overlay');
 
+    // Cerrar el overlay al dar click fuera de la imagen ampliada
+    overlay.onclick = function () {
+        overlay.remove();
+        const body = document.querySelector('body');
+        body.classList.remove('fijar__body');
+    }
+
     // Agregar un botón de cerrar para ocultar la imagen ampliada
     const cerrarimg = document.createElement('p');
     cerrarimg.textContent = 'X';
     cerrarimg.classList.add('boton__cerrar');
+
+    // Cerar el overlay al darle click al boton
     cerrarimg.onclick = function () {
         overlay.remove();
         const body = document.querySelector('body');
         body.classList.remove('fijar__body');
     }
+
+    // Agregar el cerrado al overlay.
     overlay.appendChild(cerrarimg);
 
     // Agregar el overlay a la página y fijar el cuerpo para evitar el desplazamiento

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -324,6 +325,14 @@ body {
 }
 body.fijar__body {
   overflow: hidden;
+}
+body::-webkit-scrollbar {
+  width: 8px;
+  /* Tamaño del scroll en vertical */
+  height: 8px;
+  /* Tamaño del scroll en horizontal */
+  display: none;
+  /* Ocultar scroll */
 }
 
 p {
