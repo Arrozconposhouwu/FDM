@@ -1,47 +1,55 @@
-// Espera a que el contenido del DOM esté completamente cargado antes de iniciar la aplicación.
+// Cuando el DOM se ha cargado completamente, se ejecuta la función IniciarAPP()
 document.addEventListener('DOMContentLoaded', function () {
-    IniciarAPP(); // Llama a la función IniciarAPP() cuando el DOM esté listo.
+    IniciarAPP();
 });
 
-// Función que inicia la aplicación.
+// Función para iniciar la aplicación
 function IniciarAPP() {
-    CrearGaleria(); // Llama a la función CrearGaleria() para crear la galería de imágenes.
+    // Llama a la función CrearGaleria() para crear la galería de imágenes
+    CrearGaleria();
 }
 
-// Función que crea la galería de imágenes.
+// Función para crear la galería de imágenes
 function CrearGaleria() {
-    const galeria = document.querySelector('.galeria__imagenes'); // Obtiene el elemento con la clase 'galeria__imagenes' desde el DOM.
-
+    // Selecciona el elemento con la clase 'galeria__imagenes' para agregar las imágenes
+    const galeria = document.querySelector('.galeria__imagenes');
     for (let i = 1; i <= 12; i++) {
+        // Crea un nuevo elemento 'picture' para mostrar una imagen
         const imagen = document.createElement('picture');
         imagen.innerHTML = `
             <source srcset="build/img/grande/${i}.avif" type="image/avif">
             <source srcset="build/img/grande/${i}.webp" type="image/webp">
-            <img src="build/img/grande/${i}.png" alt="Imagen de Galeria" class="galeria__img">
+            <img src="build/img/grande/${i}.png" alt="Imagen de Galeria">
         `;
 
+        // Asigna un evento 'onclick' a cada imagen creada para mostrar la imagen en la superposición
         imagen.onclick = function () {
             mostrarImagen(i);
         }
+
+        // Agrega la imagen a la galería
         galeria.appendChild(imagen);
     }
 }
 
-// Función que permite ver cada imagen de la galeria.
+// Función para mostrar la imagen seleccionada en una superposición (overlay)
 function mostrarImagen(id) {
+    // Crea un nuevo elemento 'picture' para mostrar la imagen seleccionada
     const imagen = document.createElement('picture');
     imagen.innerHTML = `
         <source srcset="build/img/grande/${id}.avif" type="image/avif">
         <source srcset="build/img/grande/${id}.webp" type="image/webp">
-        <img src="build/img/grande/${id}.png" alt="Imagen de Galeria" class="galeria__img">
+        <img src="build/img/grande/${id}.png" alt="Imagen de Galeria">
     `;
 
-    // Fondo negro.
+    // Crea un nuevo elemento 'div' que servirá como capa superpuesta (overlay)
     const overlay = document.createElement('div');
     overlay.appendChild(imagen);
+
+    // Agrega la clase 'overlay' al div, que tendrá estilos para mostrar la superposición
     overlay.classList.add('overlay');
 
-    // Hacer que se muestre la imagen.
+    // Busca el elemento 'body' del documento y agrega la superposición 'overlay' al final
     const body = document.querySelector('body');
     body.appendChild(overlay);
 }
